@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Humanizador - Humanix</title>
+    <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo" onclick="window.location.href='/hub'">Humanix ✨</div>
+        <nav>
+            <a href="/hub">Inicio</a>
+            <a href="/humanizador" class="active">Humanizar</a>
+            <a href="/detector">Detectar IA</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2 class="section-title">Humanizar Texto</h2>
+        <div class="tool-card">
+            <textarea id="humanize-input" placeholder="Pega aquí tu texto generado por IA..."></textarea>
+            <button onclick="humanizeText()" class="btn primary full-width">✨ Humanizar Ahora</button>
+            
+            <div id="humanize-result" class="result-area hidden">
+                <h3>✅ Versión Humanizada</h3>
+                <div id="humanized-output" class="output-text"></div>
+                <h4>Palabras que delataban IA:</h4>
+                <div id="flagged-list" class="word-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+  </html>
