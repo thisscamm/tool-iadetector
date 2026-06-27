@@ -4,47 +4,35 @@ const aiTriggerWords = {
     "realm": "Uso formal típico",
     "crucial": "Adjetivo favorito de IA",
     "nuances": "Palabra intelectual común",
-    "intricate": "Descripción detallada típica",
-    "testament": "Expresión dramática",
-    "ever-evolving": "Frase cliché"
+    "intricate": "Descripción detallada típica"
 };
 
 function detectAI() {
     const input = document.getElementById('detect-input').value.trim();
-    if (!input) return alert("Ingresa un texto");
+    if (!input) return alert("Por favor ingresa un texto");
 
-    let score = 35;
+    let score = 40;
     const found = [];
-
-    // Análisis profundo
-    const lowerText = input.toLowerCase();
-    const wordCount = input.split(/\s+/).length;
+    const lower = input.toLowerCase();
 
     Object.keys(aiTriggerWords).forEach(word => {
-        if (lowerText.includes(word)) {
+        if (lower.includes(word)) {
             score += 14;
             found.push({word, reason: aiTriggerWords[word]});
         }
     });
 
-    // Análisis adicional
-    if (wordCount > 150) score += 12;
-    if (/(\bthe\b.*\bthe\b.*\bthe\b.*\bthe\b)/gi.test(input)) score += 10;
-    if (/\b(always|never|perfect|amazing|incredible)\b/gi.test(lowerText)) score += 8;
-    if (input.match(/,/g) && input.match(/,/g).length > 12) score += 7; // Muchas comas
+    if (input.length > 800) score += 10;
+    if (/\b(always|never|perfect|amazing)\b/gi.test(input)) score += 8;
 
-    const finalScore = Math.min(97, Math.max(28, score));
+    const finalScore = Math.min(97, Math.max(30, score));
 
     document.getElementById('ai-score').textContent = `${finalScore}% IA`;
 
-    const explanation = document.getElementById('detect-explanation');
-    explanation.innerHTML = finalScore > 75 
-        ? `<p style="color:var(--red); font-weight:600;">Este texto muestra fuertes patrones típicos de inteligencia artificial.</p>`
-        : finalScore > 55 
-        ? `<p style="color:var(--pink);">El texto tiene algunas señales de IA pero no es concluyente.</p>`
-        : `<p style="color:var(--lightblue);">El texto parece bastante natural y humano.</p>`;
+    document.getElementById('detect-explanation').innerHTML = finalScore > 70 
+        ? `<p style="color:#C026D3"><strong>Texto con alta probabilidad de ser generado por IA.</strong></p>`
+        : `<p style="color:#60A5FA">El texto parece mayormente humano.</p>`;
 
-    // Lista de palabras
     const container = document.getElementById('detected-list');
     container.innerHTML = '';
     found.forEach(item => {
