@@ -2,10 +2,50 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=/hub">
-    <title>Humanix</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Humanix - Humaniza textos de IA</title>
+    <link rel="stylesheet" href="/assets/styles.css">
+    <style>
+        .redirect-container {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+        }
+        .redirect-container h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1rem;
+        }
+        .redirect-container p {
+            font-size: 1.3rem;
+            color: #94A3B8;
+            max-width: 600px;
+        }
+    </style>
 </head>
 <body>
-    <p>Redirigiendo a la página...</p>
+    <header>
+        <div class="logo">Humanix</div>
+        <nav>
+            <a href="/hub">Inicio</a>
+            <a href="/humanizador">Humanizar</a>
+            <a href="/detector">Detectar IA</a>
+        </nav>
+    </header>
+
+    <div class="redirect-container">
+        <h1>Bienvenido a Humanix</h1>
+        <p>Transformamos textos generados por IA en contenido auténtico, natural y profesional.</p>
+        <p style="margin-top: 3rem; opacity: 0.8;">Redirigiendo al inicio...</p>
+    </div>
+
+    <script>
+        setTimeout(() => {
+            window.location.href = "/hub";
+        }, 1600);
+    </script>
 </body>
 </html>
