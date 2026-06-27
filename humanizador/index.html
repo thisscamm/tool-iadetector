@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <div class="logo" onclick="window.location.href='/hub'">Humanix ✨</div>
+        <div class="logo">Humanix</div>
         <nav>
             <a href="/hub">Inicio</a>
             <a href="/humanizador" class="active">Humanizar</a>
@@ -17,16 +17,17 @@
     </header>
 
     <div class="container">
-        <h2 class="section-title">Humanizar Texto</h2>
+        <h2 class="section-title">Humanizador de Texto</h2>
         <div class="tool-card">
             <textarea id="humanize-input" placeholder="Pega aquí tu texto generado por IA..."></textarea>
-            <button onclick="humanizeText()" class="btn primary full-width">✨ Humanizar Ahora</button>
+            <button onclick="humanizeText()" class="btn primary full-width">Humanizar Texto</button>
             
             <div id="humanize-result" class="result-area hidden">
                 <h3>✅ Versión Humanizada</h3>
-                <button onclick="copyResult()" class="copy-btn">📋 Copiar Texto Humanizado</button>
                 <div id="humanized-output" class="output-text"></div>
-                <h4>Palabras que delataban IA:</h4>
+                <button onclick="copyResult()" class="copy-btn">📋 Copiar Texto</button>
+                
+                <h4 style="margin-top: 2rem;">Palabras que delataban IA:</h4>
                 <div id="flagged-list" class="word-list"></div>
             </div>
         </div>
@@ -34,4 +35,4 @@
 
     <script src="script.js"></script>
 </body>
-  </html>
+</html>
