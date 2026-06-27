@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detector de IA - Humanix</title>
+    <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo" onclick="window.location.href='/hub'">Humanix ✨</div>
+        <nav>
+            <a href="/hub">Inicio</a>
+            <a href="/humanizador">Humanizar</a>
+            <a href="/detector" class="active">Detectar IA</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2 class="section-title">Detector de IA</h2>
+        <div class="tool-card">
+            <textarea id="detect-input" placeholder="Pega el texto a analizar..."></textarea>
+            <button onclick="detectAI()" class="btn primary full-width">🔍 Analizar Texto</button>
+            
+            <div id="detect-result" class="result-area hidden">
+                <div id="ai-score" class="score"></div>
+                <div id="detect-explanation"></div>
+                <h4>Palabras sospechosas:</h4>
+                <div id="detected-list" class="word-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
